@@ -1,10 +1,6 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
-
 
 /* ==========================================================================
-   Base styles: opinionated defaults
+   Base styles:
    ========================================================================== */
 
 html {
@@ -21,8 +17,6 @@ html {
  *
  * Vendor-prefixed and regular ::selection selectors cannot be combined:
  * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
  */
 
 ::-moz-selection {
@@ -108,6 +102,48 @@ header img {
   width: 100%;
   display: block;
 }
+/* ==========================================================================
+   Body styles
+   ========================================================================== */
+
+body {
+  background-color: white;
+  box-shadow: rgb(51, 51, 51) 10px 0px 40px, rgb(51, 51, 51) -10px 0px 40px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  min-height: 100%;
+  margin: 0px auto;
+  min-width: 600px;
+  max-width: 1024px;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+body div#container{
+  display: inline-flex;
+  width: 100%;
+  padding: 10px;
+}
+body div#summary{
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+ul{
+  margin: auto;
+  display: inline-block;
+  text-align: left;
+  list-style-position: inside;
+}
+#left, #right{
+  text-align: center;
+  flex-grow: 1;
+}
+
 /* Footer Styles */
 
 footer {
