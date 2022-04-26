@@ -738,7 +738,7 @@ function Bomb(x, y, velocity) {
 
 /*
     Invader
-    Invader's have position, type, rank/file and that's about it.
+    Invader's have position, type, rank/file.
 */
 
 function Invader(x, y, rank, file, type) {
