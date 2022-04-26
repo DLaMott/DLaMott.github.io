@@ -8,9 +8,11 @@
    ========================================================================== */
 
 html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+  background: rgb(211, 211, 211);
+  font-family: Verdana, Geneva, sans-serif;
+  height: 100%;
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /*
@@ -82,9 +84,43 @@ textarea {
 /* ==========================================================================
    Header styles
    ========================================================================== */
-h1#Entry{
+
+header {
+  width: 100%;
+  position: relative;
+}
+
+
+header > div {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  color: whitesmoke;
+}
+
+header > div input {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+header img {
+  width: 100%;
+  display: block;
+}
+/* Footer Styles */
+
+footer {
+  width: 100%;
+}
+
+footer p {
+  color: rgb(211, 211, 211);
+  font-size: 0.9em;
   text-align: center;
-  margin: auto;
+  background-color: dimgrey;
+  margin: 0px;
+  padding: 10px 0px;
 }
 
 /* ==========================================================================
