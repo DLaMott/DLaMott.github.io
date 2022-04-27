@@ -98,6 +98,23 @@ header > div p > a{
   text-decoration: none;
   color: white;
 }
+.button{
+  line-height: 1;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: .83333rem;
+  border-radius: 2px;
+  border-width: 0;
+  text-decoration: none;
+  padding: 5px 5px;
+  color: white;
+  background-color: black;
+}
+.connect{
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
 
 header > div input {
   -moz-border-radius: 10px;
