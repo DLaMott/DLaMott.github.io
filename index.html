@@ -30,7 +30,7 @@
     <h4>Software developer</h4>
     <p><a class="button" href="Dylan_LaMott_Resume.pdf" target="_blank">Grab my Resume</a></p>
     <p><a class="button" href="snake.html">Lets play snake!</a></p>
-    <p><a class="button" href="SpaceInvaders.html">Let's play Invaders!</a></p>
+
   </div>
 </header>
 
@@ -85,6 +85,7 @@
 
 <div id="cssExplained">
   <h4>What has CSS taught me?</h4>
+
   <p>CSS is more than useful when creating dynamic pages for devices. School has taught me many essential features
     of CSS. My most used method for designing my sites is to use an external style sheet. By using an external style
     sheet, I am allowed the ability to design my pages in one sole file. My web markup and scripting course further
@@ -97,9 +98,35 @@
 
 <div id="jsUsed">
   <h4>How did I use JavaScript on this site?</h4>
+
+  <p>Two of my all-time favorite games are snake, and space invaders. With each new language I learn I make a point to
+    try and re-create these games. In the past, I have made snake using Python, Swift, Java, and now JavaScript.
+    In school, we were able to learn about key events, accessing elements in the DOM, canvases, and JavaScript syntax.
+    To gain further practice, I began the creation of these games. I am still working on space invaders so as of now
+    it is omitted. I also decided that I would make a running counter to display how long it has been since my first
+    GitHub contribution. This shows around how long I have been developing for!</p>
+
   <h5>Snake Game</h5>
-  <h5>Space Invaders</h5>
+
+  <p>For the snake game I decided to go with an embedded JavaScript script. This game, although fun to play, is one of
+    the easier games to make. All I needed was a canvas to draw the items, functions to track positions, logic to handle
+    collisions, and event listeners for keys. </p>
+
+  <p>Within the script I collect the canvas and initialize variables to contain all necessary elements. The snake, at
+    it's simplest, is an array of coordinates within the canvas grid. As the snake eats the apple we cause the snake to
+    grow where the head is always at the front of the array. We also access a p tag labeled as score to update with each
+    apple consumption. As the snake moves in the grid we draw based on the position and or where the users chose to move
+    the head. The game will reset if the snake collides with its self.</p>
+
+  <p>Overall, only four functions were needed to implement this game. This being a smaller game I felt embedded was the
+  easier way to go.</p>
+
   <h5>Contribution clock</h5>
+
+  <p>This clock idea came to me from a previous assignment where we were to create a countdown timer to new years.
+  In order to make a counter I needed to create the logic for acquiring the time passed since a set start date and time.
+  Once I calculated the correct numbers it was as simple as changing the document element to the correct parameter.</p>
+
 </div>
 
 <div class="connect">

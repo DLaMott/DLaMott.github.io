@@ -9,7 +9,7 @@ function runClock() {
   var startStamp = startDateTime.getTime();
 
   var newDate = new Date();
-  var newStamp = newDate.getTime();
+  var newStamp;
 
   var timer; // for storing the interval (to stop or pause later if needed)
 
@@ -25,8 +25,8 @@ function runClock() {
   diff = diff-(m*60);
   var s = diff;
 // Set days in browser
-  document.getElementById("days").textContent = Math.floor(d);
-  document.getElementById("hrs").textContent = Math.floor(h);
-  document.getElementById("mins").textContent = Math.floor(m);
-  document.getElementById("secs").textContent = Math.floor(s);
+  document.getElementById("days").textContent = Math.floor(d).toLocaleString();
+  document.getElementById("hrs").textContent = Math.floor(h).toLocaleString();
+  document.getElementById("mins").textContent = Math.floor(m).toLocaleString();
+  document.getElementById("secs").textContent = Math.floor(s).toLocaleString();
 }
