@@ -22,27 +22,17 @@
 </head>
 <body>
 
-<canvas width="400" height="400" id="game"></canvas>
+<canvas width="400" height="400" id="snakeGame"></canvas>
 <script>
-  var canvas = document.getElementById('game');
+  var canvas = document.getElementById('snakeGame');
   var context = canvas.getContext('2d');
 
   var grid = 16;
   var count = 0;
   var score = 0;
 
-  var snake = {
-    x: 160,
-    y: 160,
-    dx: grid,
-    dy: 0,
-    cells: [],
-    maxCells: 4
-  };
-  var apple = {
-    x: 320,
-    y: 320
-  };
+  var snake = {x: 160, y: 160, dx: grid, dy: 0, cells: [], maxCells: 4};
+  var apple = {x: 320, y: 320};
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -76,7 +66,7 @@
       snake.y = 0;
     }
 
-    // keep track of where snake has been. front of the array is always the head
+    // keep track of where snake has been.
     snake.cells.unshift({x: snake.x, y: snake.y});
 
     // remove cells as we move away from them
@@ -108,7 +98,7 @@
 
       for (var i = index + 1; i < snake.cells.length; i++) {
 
-        // snake occupies same space as a body part. reset game
+        // Check for snake collision
         if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
           snake.x = 160;
           snake.y = 160;
@@ -127,7 +117,7 @@
     });
   }
 
-  // listen to keyboard events to move the snake
+  // listen to keyboard to move the snake
   document.addEventListener('keydown', function (e) {
 
     // left arrow key

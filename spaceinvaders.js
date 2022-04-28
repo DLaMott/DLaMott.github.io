@@ -23,7 +23,7 @@ var KEY_SPACE = 32;
 //  Creates an instance of the Game class.
 function Game() {
 
-  //  Set the initial config.
+  //  Set the initial config. Changes here can instantly effect the overall game
   this.config = {
     bombRate: 0.08,
     bombMinVelocity: 50,
@@ -37,7 +37,7 @@ function Game() {
     gameHeight: 300,
     fps: 50,
     debugMode: false,
-    invaderRanks: 5,
+    invaderRank: 5,
     invaderFiles: 10,
     shipSpeed: 120,
     levelDifficultyMultiplier: 0.3,
@@ -45,7 +45,7 @@ function Game() {
     limitLevelIncrease: 25
   };
 
-  //  All state is in the variables below.
+  //  Set the game state
   this.lives = 3;
   this.width = 0;
   this.height = 0;
@@ -68,7 +68,6 @@ function Game() {
   this.previousX = 0;
 }
 
-//  Initialis the Game with a canvas.
 Game.prototype.initialise = function(gameCanvas) {
 
   //  Set the game canvas.
@@ -258,7 +257,7 @@ WelcomeState.prototype.draw = function(game, dt, ctx) {
   ctx.clearRect(0, 0, game.width, game.height);
 
   ctx.font="30px Arial";
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = '#006600';
   ctx.textBaseline="middle";
   ctx.textAlign="center";
   ctx.fillText("Space Invaders", game.width / 2, game.height/2 - 40);
@@ -269,7 +268,6 @@ WelcomeState.prototype.draw = function(game, dt, ctx) {
 
 WelcomeState.prototype.keyDown = function(game, keyCode) {
   if(keyCode == KEY_SPACE) {
-    //  Space starts the game.
     game.level = 1;
     game.score = 0;
     game.lives = 3;
@@ -291,7 +289,7 @@ GameOverState.prototype.draw = function(game, dt, ctx) {
   ctx.clearRect(0, 0, game.width, game.height);
 
   ctx.font="30px Arial";
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = '#006600';
   ctx.textBaseline="center";
   ctx.textAlign="center";
   ctx.fillText("Game Over!", game.width / 2, game.height/2 - 40);
@@ -350,7 +348,7 @@ PlayState.prototype.enter = function(game) {
   this.rocketMaxFireRate = this.config.rocketMaxFireRate + 0.4 * limitLevel;
 
   //  Create the invaders.
-  var ranks = this.config.invaderRanks + 0.1 * limitLevel;
+  var ranks = this.config.invaderRank + 0.1 * limitLevel;
   var files = this.config.invaderFiles + 0.2 * limitLevel;
   var invaders = [];
   for(var rank = 0; rank < ranks; rank++){
@@ -583,7 +581,7 @@ PlayState.prototype.draw = function(game, dt, ctx) {
   //  Draw info.
   var textYpos = game.gameBounds.bottom + ((game.height - game.gameBounds.bottom) / 2) + 14/2;
   ctx.font="14px Arial";
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = '#006600';
   var info = "Lives: " + game.lives;
   ctx.textAlign = "left";
   ctx.fillText(info, game.gameBounds.left, textYpos);
@@ -650,7 +648,7 @@ PauseState.prototype.draw = function(game, dt, ctx) {
   ctx.clearRect(0, 0, game.width, game.height);
 
   ctx.font="14px Arial";
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = '#006600';
   ctx.textBaseline="middle";
   ctx.textAlign="center";
   ctx.fillText("Paused", game.width / 2, game.height/2);
@@ -694,7 +692,7 @@ LevelIntroState.prototype.draw = function(game, dt, ctx) {
   ctx.clearRect(0, 0, game.width, game.height);
 
   ctx.font="36px Arial";
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = '#006600';
   ctx.textBaseline="middle";
   ctx.textAlign="center";
   ctx.fillText("Level " + this.level, game.width / 2, game.height/2);
@@ -704,11 +702,7 @@ LevelIntroState.prototype.draw = function(game, dt, ctx) {
 };
 
 
-/*
-
-  Ship
-  The ship has a position and that's about it.
-*/
+// Ship
 function Ship(x, y) {
   this.x = x;
   this.y = y;
@@ -716,31 +710,21 @@ function Ship(x, y) {
   this.height = 16;
 }
 
-/*
-    Rocket
-    Fired by the ship, they've got a position, velocity and state.
-    */
+// Rocket
 function Rocket(x, y, velocity) {
   this.x = x;
   this.y = y;
   this.velocity = velocity;
 }
 
-/*
-    Bomb
-    Dropped by invaders, they've got position, velocity.
-*/
+// Bomb
 function Bomb(x, y, velocity) {
   this.x = x;
   this.y = y;
   this.velocity = velocity;
 }
 
-/*
-    Invader
-    Invader's have position, type, rank/file.
-*/
-
+// Invader
 function Invader(x, y, rank, file, type) {
   this.x = x;
   this.y = y;
@@ -753,10 +737,7 @@ function Invader(x, y, rank, file, type) {
 
 /*
     Game State
-    A Game State is simply an update and draw proc.
-    When a game is in the state, the update and draw procs are
-    called, with a dt value (dt is delta time, i.e. the number)
-    of seconds to update or draw).
+    A Game State is an update and draw proc.
 */
 function GameState(updateProc, drawProc, keyDown, keyUp, enter, leave) {
   this.updateProc = updateProc;
