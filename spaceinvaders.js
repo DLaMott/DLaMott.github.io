@@ -1,6 +1,8 @@
 /*
   spaceinvaders.js
   the core logic for the space invaders game.
+
+  Abandon all hope ye who enter here.
 */
 
 /*
