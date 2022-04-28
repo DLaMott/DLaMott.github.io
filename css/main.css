@@ -186,6 +186,21 @@ div#countdown div {
 div#countdown div span {
   font-size: 2em;
 }
+div#htmlExplained{
+  width: 100%;
+  padding: 10px;
+}
+div#cssExplained{
+  width: 100%;
+  padding: 10px;
+}
+div#jsUsed{
+  width: 100%;
+  padding: 10px;
+}
+div#jsUsed > h5{
+  text-align: center;
+}
 
 ul{
   margin: auto;
