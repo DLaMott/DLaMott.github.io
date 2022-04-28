@@ -12,11 +12,8 @@ html {
 }
 
 /*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
  *
  * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
  */
 
 ::-moz-selection {
@@ -42,11 +39,7 @@ hr {
   padding: 0;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
+
 
 audio,
 canvas,
@@ -311,13 +304,11 @@ footer p {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   TO DO add media queries
    ========================================================================== */
 
 @media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+
 }
 
 @media print,
@@ -330,7 +321,6 @@ footer p {
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
 @media print {
@@ -376,10 +366,6 @@ footer p {
     page-break-inside: avoid;
   }
 
-  /*
-   * Printing Tables:
-   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
   thead {
     display: table-header-group;
   }
