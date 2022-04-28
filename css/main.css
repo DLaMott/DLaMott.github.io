@@ -1,4 +1,6 @@
-
+/*
+Created by: Dylan LaMott. Used for index.html
+*/
 /* ==========================================================================
    Base styles:
    ========================================================================== */
@@ -25,10 +27,6 @@ html {
   background: #b3d4fc;
   text-shadow: none;
 }
-
-/*
- * A better looking default horizontal rule
- */
 
 hr {
   display: block;
@@ -87,10 +85,12 @@ header > div {
   text-effect: outline;
   font-weight: bold;
 }
+
 header > div p > a{
   text-decoration: none;
   color: white;
 }
+
 .button{
   line-height: 1;
   cursor: pointer;
@@ -103,6 +103,7 @@ header > div p > a{
   color: white;
   background-color: black;
 }
+
 .connect{
   text-align: center;
   padding: 10px;
@@ -137,6 +138,7 @@ body {
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
 }
+
 body h4{
   text-align: center;
   width: 100%;
@@ -147,11 +149,13 @@ body div#container{
   width: 100%;
   padding: 10px;
 }
+
 body div#summary{
   display: block;
   width: 100%;
   padding: 10px;
 }
+
 div#countdown {
   padding: 10px;
   text-align: center;
@@ -160,8 +164,8 @@ div#countdown {
   display: flex;
   -webkit-flex-flow: row nowrap;
   flex-flow: row nowrap;
-
 }
+
 div#countdown div {
   display: block;
   text-align: center;
@@ -171,26 +175,29 @@ div#countdown div {
   font-family: segment14, sans-serif;
   color: white;
   margin: 0px 10px;
-  color: white;
-  text-align: center;
   text-shadow: 0px 0px 2px black, 0px 0px 4px black, -1px 1px 8px white,
   1px -1px 8px white, -1px 1px 12px white, 1px -1px 12px white;
 }
+
 div#countdown div span {
   font-size: 2em;
 }
+
 div#htmlExplained{
   width: 100%;
   padding: 10px;
 }
+
 div#cssExplained{
   width: 100%;
   padding: 10px;
 }
+
 div#jsUsed{
   width: 100%;
   padding: 10px;
 }
+
 div#jsUsed > h5{
   text-align: center;
 }
@@ -201,6 +208,7 @@ ul{
   text-align: left;
   list-style-position: inside;
 }
+
 #left, #right{
   text-align: center;
   flex-grow: 1;
@@ -236,11 +244,6 @@ footer p {
 
 /*
  * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
 
 .sr-only {
@@ -253,13 +256,12 @@ footer p {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  /* 1 */
+
 }
 
 /*
  * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
+
  */
 
 .sr-only.focusable:active,
@@ -283,14 +285,7 @@ footer p {
 
 /*
  * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
+  `:before` to contain the top-margins of child elements.
  */
 
 .clearfix::before,
