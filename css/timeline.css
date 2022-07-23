@@ -23,6 +23,11 @@ body {
   flex-flow: row wrap;
   color: white;
 }
+body h4{
+  text-align: center;
+  width: 100%;
+  color: white;
+}
 
 
 header {
