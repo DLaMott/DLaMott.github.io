@@ -1,7 +1,9 @@
 html{
   background-color: #222C32;
+  font-family: Verdana, Geneva, sans-serif;
   height: 100%;
-  font-family: 'Open Sans', sans-serif;
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
   box-sizing: border-box;
 
 }
@@ -43,6 +45,7 @@ header > div p > a{
   color: white;
 }
 
+
 header > div input {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -52,7 +55,6 @@ header > div input {
 header img {
   width: 100%;
   display: block;
-  align-content: center;
 }
 
 .button{
@@ -63,7 +65,7 @@ header img {
   border-radius: 2px;
   border-width: 0;
   text-decoration: none;
-  padding: 5px 5px;
+  padding: 2px 2px;
   color: white;
   background-color: #222C32;
 }
@@ -322,4 +324,15 @@ footer p {
   background-color: dimgrey;
   margin: 0px;
   padding: 10px 0px;
+}
+
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
 }
