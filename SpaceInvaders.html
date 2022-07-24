@@ -91,12 +91,15 @@
 
   //  Create the game.
   var game = new Game();
+  var soundss = game.sounds();
+
 
   //  Initialise it with the game canvas.
   game.initialise(canvas);
 
   //  Start the game.
   game.start();
+
 
   //  Listen for keyboard events.
   window.addEventListener("keydown", function keydown(e) {
@@ -128,6 +131,7 @@
   function toggleMute() {
     game.mute();
     document.getElementById("muteLink").innerText = game.sounds.mute ? "unmute" : "mute";
+    game.sounds.audio.play();
   }
 </script>
 </body>
