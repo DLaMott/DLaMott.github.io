@@ -18,6 +18,8 @@
 </head>
 <body>
 
+<h5 style="color: greenyellow">Snake Game</h5>
+
 <canvas width="400" height="400" id="snakeGame"></canvas>
 <script>
 
@@ -146,6 +148,11 @@
         snake.dx = 0;
       }
     });
+  }else{
+    screen.orientation.lock();
+    document.body.style.overflow = "hidden";
+    window.onscroll = () => { window.scroll(0, 0); };
+
   }
 
   function moveup() {
@@ -177,10 +184,6 @@
   requestAnimationFrame(loop);
 </script>
 <footer>
-
-  <p id="game-score" style="color: white">Score:</p>
-  <p><a href="index.html" style="color: red">Exit Game</a></p>
-
   <div style="text-align: center">
     <p style="color: red"> Use buttons for mobile devices</p>
   <div style="padding: 5px">
@@ -194,6 +197,8 @@
     <input id="DOWN" type="button" value="DOWN" onclick="movedown()">
   </div>
   </div>
+  <p id="game-score" style="color: white">Score:</p>
+  <p><a href="index.html" style="color: red">Exit Game</a></p>
 
 </footer>
 

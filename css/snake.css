@@ -6,14 +6,18 @@ To be used in snake.html
 
 html, body {
   height: 100%;
+  width: 100%;
   margin: 0;
 }
 
 body {
   background: black;
-  display: flex;
+ text-align: center;
   align-items: center;
   justify-content: center;
+}
+footer{
+  align-content: flex-end;
 }
 
 canvas {
