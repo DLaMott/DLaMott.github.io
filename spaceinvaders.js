@@ -246,7 +246,6 @@ WelcomeState.prototype.enter = function(game) {
   game.sounds.loadSound('shoot', 'sounds/shoot.wav');
   game.sounds.loadSound('bang', 'sounds/bang.wav');
   game.sounds.loadSound('explosion', 'sounds/explosion.wav');
-
 };
 
 WelcomeState.prototype.update = function (game, dt) {
