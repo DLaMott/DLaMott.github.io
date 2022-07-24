@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   <title>Space Invaders</title>
 
   <link rel="stylesheet" type="text/css" href="./css/core.css">
@@ -53,9 +53,8 @@
 <div id="gamecontainer">
   <canvas id="gameCanvas"></canvas>
 </div>
-<div id="info">
-  <p>Move with arrow keys or swipe, fire with the space bar or touch. The invaders attack faster as the level increases.
-  Currently only supported for desktop users.</p>
+<div id="info" style="width: 100%">
+  <p>Move with arrow keys or swipe, fire with the space bar or touch. The invaders attack faster as the level increases.</p>
   <p><a id="muteLink" href="#" onclick="toggleMute()">Mute</a> |
     <a href="https://github.com/GothamsJoker">More projects</a> | <a href="index.html">Exit</a></p>
 </div>
@@ -70,10 +69,22 @@
   starfield.initialise(container);
   starfield.start();
 
+  const isMobile = function (){
+    const match = window.matchMedia('(pointer:coarse)');
+    return (match && match.matches);
+  }
+
   //  Setup the canvas.
   var canvas = document.getElementById("gameCanvas");
-  canvas.width = 800;
-  canvas.height = 600;
+
+  if(!isMobile()) {
+    canvas.width = 800;
+    canvas.height = 600;
+  }else{
+
+    canvas.width = screen.width
+    canvas.height = 400;
+  }
 
   //  Create the game.
   var game = new Game();
