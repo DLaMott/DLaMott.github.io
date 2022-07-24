@@ -28,6 +28,11 @@
   var snake = {x: 160, y: 160, dx: grid, dy: 0, cells: [], maxCells: 4};
   var apple = {x: 320, y: 320};
 
+  const isMobile = function (){
+    const match = window.matchMedia('(pointer:coarse)');
+    return (match && match.matches);
+  }
+
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
@@ -111,38 +116,73 @@
     });
   }
 
-  // listen to keyboard to move the snake
-  document.addEventListener('keydown', function (e) {
+  if(!isMobile()) {
 
-    // left arrow key
-    if (e.which === 37 && snake.dx === 0) {
-      snake.dx = -grid;
-      snake.dy = 0;
-    }
-    // up arrow key
-    else if (e.which === 38 && snake.dy === 0) {
+    // listen to keyboard to move the snake
+    document.addEventListener('keydown', function (e) {
+
+      // left arrow key
+      if (e.which === 37 && snake.dx === 0) {
+        snake.dx = -grid;
+        snake.dy = 0;
+      }
+      // up arrow key
+      else if (e.which === 38 && snake.dy === 0) {
+        snake.dy = -grid;
+        snake.dx = 0;
+      }
+      // right arrow key
+      else if (e.which === 39 && snake.dx === 0) {
+        snake.dx = grid;
+        snake.dy = 0;
+      }
+      // down arrow key
+      else if (e.which === 40 && snake.dy === 0) {
+        snake.dy = grid;
+        snake.dx = 0;
+      }
+    });
+  }
+
+  function moveup() {
+    if(snake.dy === 0) {
       snake.dy = -grid;
       snake.dx = 0;
     }
-    // right arrow key
-    else if (e.which === 39 && snake.dx === 0) {
-      snake.dx = grid;
-      snake.dy = 0;
-    }
-    // down arrow key
-    else if (e.which === 40 && snake.dy === 0) {
+  }
+  function movedown() {
+    if(snake.dy === 0) {
       snake.dy = grid;
       snake.dx = 0;
     }
-  });
+  }
+  function moveleft() {
+    if(snake.dx === 0) {
+      snake.dx = -grid;
+      snake.dy = 0;
+    }
+  }
+  function moveright() {
+    if(snake.dx === 0) {
+      snake.dx = grid;
+      snake.dy = 0;
+    }
+  }
 
   // start the game
   requestAnimationFrame(loop);
 </script>
 <footer>
+
   <p id="game-score" style="color: white">Score:</p>
   <p><a href="index.html" style="color: red">Exit Game</a></p>
   <p style="color: red">Currently only supported for desktop users.</p>
+
+  <input id="UP" type="button" value="UP" onclick="moveup()">
+  <input id="LEFT" type="button" value="LEFT" onclick="moveleft()">
+  <input id="DOWN" type="button" value="DOWN" onclick="movedown()">
+  <input id="RIGHT" type="button" value="RIGHT" onclick="moveright()">
+
 </footer>
 
 </body>
