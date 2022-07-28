@@ -209,6 +209,8 @@ i {
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
+
+
 li {
   background: #40484D;
   border-radius: 2px;

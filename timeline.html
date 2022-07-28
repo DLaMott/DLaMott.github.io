@@ -26,6 +26,7 @@
 
     gtag('config', 'G-ER3HSY9ER6');
   </script>
+
 </head>
 <body>
 
@@ -59,16 +60,27 @@
             May 2022 - Present
           </span>
       </div>
-      <p>Working alongside the IAM Provisioning team implementing the designs, also developing custom solutions to address team necessities.</p>
+      <p>Working alongside the IAM Provisioning team implementing application designs and also developing custom
+        solutions to address team necessities. I have begun to learn essential backend developer skills and Devop
+        practices. This team offers a wonderful learning experience allowing me to build microservices that are
+        deployed in multiple environments across business infrastructures.</p>
+      <h3>Technology I am learning:</h3>
       <ul class="content-skills">
         <li>Java</li>
         <li>Spring</li>
         <li>AWS</li>
         <li>Terraform</li>
         <li>Kubernetes</li>
+        <li>Apache Kafka</li>
+        <li>Git</li>
+        <li>Maven</li>
+        <li>Kafka</li>
+        <li>IDEAL pipeline creation</li>
+        <li>Relational DB creation</li>
       </ul>
     </div> <!-- cd-timeline-content -->
   </div> <!-- cd-timeline-block -->
+
 
   <div class="cd-timeline-block">
     <div class="cd-timeline-img cd-movie">
@@ -77,51 +89,133 @@
     <div class="cd-timeline-content">
       <h2>Graduated from GTCC</h2>
       <p>On this date, I completed a chapter of my academic education. I managed to graduate from GTCC with a 4.0GPA
-      in A.A.S Computer Programming</p>
+      in A.A.S Computer Programming!</p>
       <span class="cd-date">May 16</span>
     </div> <!-- cd-timeline-content -->
   </div> <!-- cd-timeline-block -->
+
 
   <div class="cd-timeline-block">
     <div class="cd-timeline-img cd-picture">
     </div> <!-- cd-timeline-img -->
 
     <div class="cd-timeline-content">
-      <h2>Title of section 3</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
-      <span class="cd-date">Jan 24</span>
+      <h2>Solved server configuration issues for QuestDB</h2>
+      <p>
+        QuestDB needed a method to track property keys for server configuration files at start up. Upon taking this
+        issue, I realized the current method to load these property keys was using string literals. Over three hundred
+        lines had lengthy string literal property keys which can be vulnerable to error. To promote code reusability,
+        type safety, and reduce errors I created an enum storing property keys.</p>
+        <p>Using my new enum I was able to replace
+        the majority of the code within their server configuration driver. I added a test and property key validation
+        method. The added method will prevent the server from running if users enter incorrect keys in the server
+        configuration file. The method will throw a server configuration exception and display the invalid line.
+        Overall, this project was merged with QuestDB with 724 added lines and 321 deleted. This was my biggest
+        accepted PR!</p>
+
+      <span class="cd-date">March 31, 2022</span>
     </div> <!-- cd-timeline-content -->
   </div> <!-- cd-timeline-block -->
+
 
   <div class="cd-timeline-block">
     <div class="cd-timeline-img cd-location">
     </div> <!-- cd-timeline-img -->
 
     <div class="cd-timeline-content">
-      <h2>Title of section 4</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
-      <span class="cd-date">Feb 14</span>
+      <h2>First opensource contribution with QuestDB</h2>
+      <p>Getting into open source contributing, I found a good first issue within the QuestDB GitHub page. Within the
+        code bade they were incorrectly testing nanosecond time allowing the possibility for numeric overflow. I
+        submitted a pull request with my suggested changes. This pull request was accepted and merged into their
+        project.</p>
+      <span class="cd-date">February 22, 2022</span>
     </div> <!-- cd-timeline-content -->
   </div> <!-- cd-timeline-block -->
+
+
+  <div class="cd-timeline-block">
+    <div class="cd-timeline-img cd-location">
+    </div> <!-- cd-timeline-img -->
+
+    <div class="cd-timeline-content">
+      <h2>Created a data structure and algorithm overview repository</h2>
+      <p> While in school, in my own free time, I decided to make a learning repository that I could constantly come
+        back to. Using the knowledge that I gained from school and, with the aid of Data structures and Algorithms in
+        Java, I put together an all-in-one repo. The repo has in-depth readmes and code examples on how to implement
+        while also explaining the use cases of widely used data structures and algorithms.</p>
+      <span class="cd-date">December 21, 2021</span>
+    </div> <!-- cd-timeline-content -->
+  </div> <!-- cd-timeline-block -->
+
+
+  <div class="cd-timeline-block">
+    <div class="cd-timeline-img cd-location">
+    </div> <!-- cd-timeline-img -->
+
+    <div class="cd-timeline-content">
+      <h2>Implemented a metric tracking system for NPC</h2>
+      <p>To aid me as a developer, I implemented a metric tracking system of users that use my plugin.
+        This metric system was heavily needed as users were downloading incorrect version in retrospect to their
+        minecraft server version. Using these metrics I was able to identify the versioning issue and also see other
+        useful specs in regard to their environments.</p>
+      <span class="cd-date">December 5, 2021</span>
+    </div> <!-- cd-timeline-content -->
+  </div> <!-- cd-timeline-block -->
+
+
+  <div class="cd-timeline-block">
+    <div class="cd-timeline-img cd-location">
+    </div> <!-- cd-timeline-img -->
+
+    <div class="cd-timeline-content">
+      <h2>Enrolled at GTCC</h2>
+      <p>Although I was enjoying being a self-taught programmer, I decided getting an education from an accredited
+        school would strengthen my knowledge best. GTCC enabled me to learn more programming languages and the
+        underlying skills of a well-rounded developer. The A.A.S Computer programming track allowed me to hone my skills
+        in data structures, networking sciences, data science, hardware specifications, backend development, and
+        frontend development. </p>
+      <span class="cd-date">August, 2020</span>
+    </div> <!-- cd-timeline-content -->
+  </div> <!-- cd-timeline-block -->
+
+
+  <div class="cd-timeline-block">
+    <div class="cd-timeline-img cd-location">
+    </div> <!-- cd-timeline-img -->
+
+    <div class="cd-timeline-content">
+      <h2>Created the NPC plugin</h2>
+      <p>The NPC plugin is one of the bigger plugins that I made for Minecraft. It solves a simple need and best of all I offered it as free.
+      This plugin quickly became one of the most free to download plugins for minecraft spigot servers. With over 150,000 downloads, this project is now
+      widely used and one that I come back to frequently to update and add features for the users.</p>
+      <span class="cd-date">June 20, 2020</span>
+    </div> <!-- cd-timeline-content -->
+  </div> <!-- cd-timeline-block -->
+
 
   <div class="cd-timeline-block">
     <div class="cd-timeline-img cd-location">
     </div>
 
     <div class="cd-timeline-content">
-      <h2>Title of section 5</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
-      <span class="cd-date">Feb 18</span>
+      <h2>Created multiple Minecraft plugins</h2>
+      <p>Creating server side plugins in Minecraft was a great learning experience for me. Since Minecraft is based
+      primarily using the Java langauge I was able to put my skill to the test. I spent many nights developing interesting,
+      fun, and useful plugins for my local server. </p>
+      <span class="cd-date">June, 2020</span>
     </div> <!-- cd-timeline-content -->
   </div> <!-- cd-timeline-block -->
+
 
   <div class="cd-timeline-block">
     <div class="cd-timeline-img cd-movie">
     </div> <!-- cd-timeline-img -->
 
     <div class="cd-timeline-content">
-      <h2>Final Section</h2>
-      <p>This is the content of the last section</p>
+      <h2>Started learning Java</h2>
+      <p>Starting out I followed the developer guides offered from Oracle. I mainly started out learning
+      foundational skills with JDK11. I then began to purchase popular books as my interest in software development grew.
+      I enjoyed reading Head first with Java, Concurrency in Java, and Data structures and Algorithms implemented in Java.</p>
       <span class="cd-date">Feb 26</span>
     </div> <!-- cd-timeline-content -->
   </div> <!-- cd-timeline-block -->
