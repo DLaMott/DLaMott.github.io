@@ -147,7 +147,7 @@ body h4{
   color: white;
 }
 
-body div#container{
+body aside div#container{
   display: inline-flex;
   width: 100%;
   padding: 10px;
@@ -183,6 +183,46 @@ div#countdown div {
   1px -1px 8px white, -1px 1px 12px white, 1px -1px 12px white;
 }
 
+body > div > aside:first-of-type {
+  -webkit-flex: 1 1 265px;
+  flex: 1 1 265px;
+}
+
+body > div > aside:last-of-type {
+  -webkit-flex: 1 1 325px;
+  flex: 1 1 325px;
+}
+
+body > div > aside {
+  color: black;
+  margin: 25px 25px 25px 0px;
+  background-color: #7E57C2;
+  box-shadow: inset 15px 15px 25px rgba(101, 101, 101, 0.4),
+  inset -15px -15px 25px rgba(101, 101, 101, 0.4);
+  border-radius: 35px;
+  padding: 20px;
+}
+
+body > aside:first-of-type {
+  -webkit-flex: 1 1 265px;
+  flex: 1 1 265px;
+}
+
+body > aside:last-of-type {
+  -webkit-flex: 1 1 325px;
+  flex: 1 1 325px;
+}
+
+body > aside {
+  color: black;
+  margin: 25px 25px 25px 0px;
+  background-color: #7E57C2;
+  box-shadow: inset 15px 15px 25px rgba(101, 101, 101, 0.4),
+  inset -15px -15px 25px rgba(101, 101, 101, 0.4);
+  border-radius: 35px;
+  padding: 20px;
+}
+
 div#countdown div span {
   font-size: 2em;
 }
@@ -213,7 +253,7 @@ ul{
   list-style-position: inside;
 }
 
-#left, #right{
+#left, #center, #right{
   text-align: center;
   flex-grow: 1;
 }
