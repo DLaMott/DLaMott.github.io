@@ -195,7 +195,7 @@ body > div > aside:last-of-type {
 
 body > div > aside {
   color: black;
-  margin: 25px 25px 25px 0px;
+  margin: 25px 25px 25px 25px;
   background-color: #7E57C2;
   box-shadow: inset 15px 15px 25px rgba(101, 101, 101, 0.4),
   inset -15px -15px 25px rgba(101, 101, 101, 0.4);
@@ -215,7 +215,7 @@ body > aside:last-of-type {
 
 body > aside {
   color: black;
-  margin: 25px 25px 25px 0px;
+  margin: 25px 25px 25px 25px;
   background-color: #7E57C2;
   box-shadow: inset 15px 15px 25px rgba(101, 101, 101, 0.4),
   inset -15px -15px 25px rgba(101, 101, 101, 0.4);
