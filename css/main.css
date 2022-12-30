@@ -157,6 +157,13 @@ h5 {
   color: white;
 }
 
+div.test_block img{
+
+  width: 100%;
+  display: block;
+
+}
+
 body aside div#container{
   display: inline-flex;
   width: 100%;
@@ -252,7 +259,9 @@ div#deployment{
   padding: 10px;
 }
 
-pre {
+
+
+.test_block {
   background: #666;
   border: blueviolet;
   border-left: 3px solid mediumpurple;
@@ -267,6 +276,8 @@ pre {
   padding: 1em 1.5em;
   display: block;
   word-wrap: break-word;
+  white-space: pre-wrap;
+
 }
 
 div#cssExplained{
