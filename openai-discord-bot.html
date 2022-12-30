@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>openAI Discord Bot</title>
+  <meta name="description" content="Build custom-informed GPT-3-based chatbot for discord with very simple code">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Build custom-informed GPT-3-based chatbot for discord with very simple code">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/main.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ER3HSY9ER6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-ER3HSY9ER6');
+  </script>
+</head>
+<body>
+<header>
+<img src="dlamott2.png" alt="Dylan LaMott">
+<div>
+  <h1 id="Entry">Dylan LaMott</h1>
+  <h4>Software developer</h4>
+  <p><a class="button" href="index.html">Return home</a></p>
+  <p><a class="button" href="DLaMott.pdf" target="_blank">Grab my Resume</a></p>
+  <p><a class="button" href="snake.html">Lets play snake!</a></p>
+  <p><a class="button" href="SpaceInvaders.html">Lets play invaders!</a></p>
+  <p><a class="button" href="timeline.html">See my timeline!</a></p>
+
+</div>
+</header>
+
+<div id="summary">
+  <aside>
+    <h3 style="text-align: center; color: white">What is open AI?</h3>
+    <p>A GPT-3 chatbot is a software application that is able to conduct a conversation with a human user through
+      written or spoken language. The level of “intelligence” among chatbots varies greatly. While some chatbots
+      have a fairly basic understanding of language, others employ sophisticated artificial intelligence (AI)
+      and machine learning (ML) algorithms to achieve an almost human conversational level.</p>
+
+    <p>Learn more about openai <a class="button" href="https://beta.openai.com/" target="_blank">here</a></p>
+
+
+    <p>In this tutorial I’m going to show you how easy it is to build and deploy a chatbot for Discord using the OpenAI
+      platform, Node.js, Repl, and uptimerobot.</p>
+
+    <p><img src="ai.png"></p>
+
+  </aside>
+</div>
+
+<aside>
+  <div id="firstStep">
+    <h3 style="text-align: center; color: white">Create a discord bot</h3>
+    <p>Before making a openapi discord chatbot you must first create a discord bot application using the developer portal.</p>
+
+    <p>Granted there are many great tutorials already out there that show users how to do this. We do not need another
+    "how to make a discord bot" article. We are here to focus on how to generate the CODED portion not the application.</p>
+
+    <p><a class=button href="https://www.upwork.com/resources/how-to-make-discord-bot" target="_blank">Here</a>
+      is a good link for showing you how to create the application portion of the bot.</p>
+
+
+  </div>
+</aside>
+
+<div id="htmlExplained">
+  <aside>
+    <h3>Create the Node.js implementation</h3>
+    <p>After creating the Discord bot application now we can move on to the more interesting portion.</p>
+
+    <p>Before starting this tutorial ensure you have node.js installed on your local machine.</p>
+
+    <h5>1. Create the Repo</h5>
+
+    <p>In your chosen CLI run the following:</p>
+
+    <pre>
+    <code>
+      mkdir discordBot
+      cd discordBot
+      npm init</code>
+
+    </pre>
+
+    <h5>2. Install packages</h5>
+
+    <p>In your project directory, run the code below to install the necessary modules for our bot development.</p>
+
+    <pre>
+    <code>npm install discord.js axios dotenv openapi</code>
+
+    </pre>
+
+    <h5>3. Set up index.js</h5>
+
+    <p>The index.js will be the driver for most of our code. Within the index we will need to establish connection
+    to the discord bot, the openai, and define logic for listening to user messages.</p>
+
+    <p>First set up the required imports by adding this to your index.js</p>
+
+    <pre>
+    <code>
+      require('dotenv').config();
+      const axios = require('axios');
+      const { Client, GatewayIntentBits } = require('discord.js');
+      const OpenAI = require('openai');</code>
+      const keepAlive = require('./server');
+    </pre>
+
+
+    <p>Next we can configure the openai connection that our bot will use. You will need an apikey to connect to the service.
+      openai already has a guide on this
+      <a class="button" href="https://beta.openai.com/docs/quickstart" target="_blank">here</a></p>
+
+    <pre>
+    <code>
+      const {Configuration, OpenAIApi} = OpenAI;
+      const configuration = new Configuration({
+          apiKey: process.env.OPENAI_API_KEY,
+        });
+      const openai = new OpenAIApi(configuration);</code>
+    </pre>
+
+    <p>Notice the <strong>process.env.OPENAI_API_KEY</strong>? This is set by adding a .env file in your directory.
+      It is good practice to <strong>NOT</strong> share your apikey with others. .env files help protect your secrets
+      from being exposed at run time. However, while you can use a .env for local testing we will follow a different
+      approach when we deploy to Repl.</p>
+
+    <p>Now lets setup how the bot will communicate with the users in Discord</p>
+
+    <pre>
+    <code>
+
+      const client = new Client({ intents: [
+
+      GatewayIntentBits.Guilds,
+	    GatewayIntentBits.GuildMessages,
+	    GatewayIntentBits.MessageContent,
+	    GatewayIntentBits.GuildMembers,
+
+      ], });
+</code>
+
+    </pre>
+
+    <p>Should you have questions on this process please see the Discord documentation.</p>
+
+    <p>Finally add the needed code for openai</p>
+
+    <pre>
+    <code>
+      const prefix = "!";
+
+      client.on("messageCreate", async function(message) {
+
+      if (message.author.bot) return;
+      if (!message.content.startsWith(prefix)) return;
+
+      const commandBody = message.content.slice(prefix.length);
+      var question = commandBody.split(':');
+      question.shift();
+
+      console.log(question);
+      const args = commandBody.split(' ');
+      const command = args.shift().toLowerCase();
+
+      if(command ==="question:"){
+
+        const response = await openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: `Pretend you are John who is a Mr know it all. Be mean but answer questions correctly.
+          Person: ${message}
+          John: `,
+          max_tokens: 500,
+          temperature: 0,
+        });
+
+      console.log(response.data);
+
+      message.reply(response.data.choices[0].text);
+    }
+
+  });
+
+  keepAlive();
+
+  client.login(process.env.CLIENT_TOKEN);</code>
+    </pre>
+
+    <p>This is everything that is needed for grabbing a user's message, detecting the question command, passing the
+      question to openai, and returning the response to the user.</p>
+
+
+
+    <h5>4. Set up Server.js</h5>
+
+    <h4>NOTE: If you are going to run locally only do not add the server.js and remove any reference of server.js from the index.js</h4>
+
+    <p>The server will utilize a function to keep the server alive. Add the below code to your server.js and the code
+      writing portion for a basic chatbot is done!</p>
+
+    <pre>
+    <code>
+
+      const express = require('express');
+      const server = express();
+
+      server.all('/', (req, res) =>{
+
+      res.setHeader('Content-Type', 'text/html');
+      res.write('&lt;link href="https:fonts.googleapis.com/css?family=?Roboto Condensed"
+        rel="stylesheet"&gt; &lt;style&gt; body {font-family: "Roboto Condensed";
+        font-size: 22px;}&lt;p&gt;Hosting Active&lt;/p&gt;');
+      res.end();
+      })
+
+      function keepAlive(){
+        server.listen(3000, () => {console.log('Server is on')});
+      }
+
+      module.exports = keepAlive;
+
+</code>
+
+    </pre>
+
+
+  </aside>
+
+</div>
+
+
+
+<div id="deployment">
+  <aside>
+    <h4>Deploy your bot</h4>
+    <p>With the code in place we can now move to Repl and deploy our code to a live server!</p>
+
+    <h5>1. Navigate to <a class="button" href="https://replit.com/~">Repl</a> and create your first account.</h5>
+
+    <h5>2. Create a new project</h5>
+
+    <pre> <img src="repl-step-one.PNG"> </pre>
+    <h5>3. Add all of the files</h5>
+    <pre><img src="repl-step-two.PNG"></pre>
+    <h5>4. Manage the secrets</h5>
+    <p>Here is where we can enter our openai apikey and our discord bot token. Remember don't share this with anyone!</p>
+    <pre><img src="repl-step-three.PNG"></pre>
+    <p>Make sure you save and you secrets look similar to below</p>
+    <pre><img src="repl-step-four.PNG"></pre>
+    <h5>5. Verify the repl output</h5>
+    <pre><img src="repl-step-five.PNG"></pre>
+
+    <p>That is all we needed from repl! At this point you should be able to ping your bot
+    and tak advantage of sending questions to the AI.</p>
+
+    <h4>Set up Monitoring with UpTimeRobot</h4>
+
+    <p>To keep Repl from sleeping we will utilize UpTimeRobot to ping our service and keep the bot awake.</p>
+
+    <p>You will need to create a free account<a class="button" href="https://uptimerobot.com/" target="_blank">here</a></p>
+
+    <h5>1. Hook your site</h5>
+    <p>For this we will ping the repl we deployed every five minutes to determine if the server is awake.
+    Make sure yor https link with the url from repl that ends in 'co'.</p>
+
+    <pre>
+        <img src="robot-step-one.PNG">
+    </pre>
+
+
+    <h5>2. Verify connection</h5>
+    <pre>
+        <img src="robot-step-two.PNG">
+    </pre>
+
+  </aside>
+
+</div>
+
+<div id="jsUsed">
+  <aside>
+    <h4>Conclusion: There's more!</h4>
+
+
+    <p>There is much more to be done here! The openai project has a multitude of models allowing developers to
+    change not only how the AI acts but what the AI does. There are also image generation AIs that you could incorporate
+      to this bot. I hope this tutorial was straight forward and offered a good learning content for newer developers.
+      Thank you!</p>
+
+  </aside>
+</div>
+
+<div class="connect">
+  <h4> For the bot source code visit <a class="button" href="https://github.com/DLaMott/OpenAIDiscordBot">here</a></h4>
+  <h4>Let's Connect!</h4>
+  <a class="button" href="https://github.com/DLaMott" target="_blank">Connect on GitHub</a>
+  <a class="button" href="https://www.linkedin.com/in/dylan-lamott-b39b47200/" target="_blank">Connect on LinkedIn</a>
+</div>
+
+<footer>
+  <p>Created by: Dylan LaMott &copy; 2022 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

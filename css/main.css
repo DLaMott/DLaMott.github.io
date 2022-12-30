@@ -147,6 +147,16 @@ body h4{
   color: white;
 }
 
+body h3{
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+h5 {
+  color: white;
+}
+
 body aside div#container{
   display: inline-flex;
   width: 100%;
@@ -157,6 +167,11 @@ body div#summary{
   display: block;
   width: 100%;
   padding: 10px;
+}
+
+body div#summary img{
+  width: 100%;
+  display: block;
 }
 
 div#countdown {
@@ -230,6 +245,28 @@ div#countdown div span {
 div#htmlExplained{
   width: 100%;
   padding: 10px;
+}
+
+div#deployment{
+  width: 100%;
+  padding: 10px;
+}
+
+pre {
+  background: #666;
+  border: blueviolet;
+  border-left: 3px solid mediumpurple;
+  color: limegreen;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
 }
 
 div#cssExplained{
