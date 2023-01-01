@@ -47,6 +47,11 @@
 <div id="summary">
   <aside>
     <h3 style="text-align: center; color: white">What is open AI?</h3>
+
+    <p>The openAI API is a free to use product that offers developers to utilize ready to go AI. OpenAI offers a
+    multitude of model offering different tasks for use bases. For this project we will utilize the chat GPT-3
+    and the image generation AI models.</p>
+
     <p>A GPT-3 chatbot is a software application that is able to conduct a conversation with a human user through
       written or spoken language. The level of “intelligence” among chatbots varies greatly. While some chatbots
       have a fairly basic understanding of language, others employ sophisticated artificial intelligence (AI)
@@ -55,12 +60,20 @@
     <p>Learn more about openai <a class="button" href="https://beta.openai.com/" target="_blank">here</a></p>
 
 
-    <p>In this tutorial I’m going to show you how easy it is to build and deploy a chatbot for Discord using the OpenAI
+    <p>In this tutorial I’m going to show you how easy it is to build and deploy a bot for Discord using the OpenAI
       platform, Node.js, Repl, and uptimerobot.</p>
 
 
+    <h5>Using the chat feature:</h5>
+
     <div class="test_block">
       <p><img src="ai.png"></p>
+    </div>
+
+    <h5>Using the image feature:</h5>
+
+    <div class="test_block">
+      <p><img src="imageAi.png"></p>
     </div>
 
   </aside>
@@ -166,7 +179,7 @@
 
     <p>Should you have questions on this process please see the Discord documentation.</p>
 
-    <p>Finally add the needed code for openai</p>
+    <p>Now we can add the pieces needed for the chat portion of the AI</p>
 
     <div class="test_block">
       <code>
@@ -187,25 +200,65 @@
 
         if(command ==="question:"){
 
-        const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: `Pretend you are John who is a Mr know it all. Be mean but answer questions correctly.
-        Person: ${message}
-        John: `,
-        max_tokens: 500,
-        temperature: 0,
-        });
+        try{
 
-        console.log(response.data);
+          const response = await openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: `Pretend you are John who is a Mr know it all. Be mean but answer questions correctly.
+          Person: ${message}
+          John: `,
+          max_tokens: 500,
+          temperature: 0,
+          });
 
-        message.reply(response.data.choices[0].text);
+          console.log(response.data);
+
+          message.reply(response.data.choices[0].text);
+          } catch (error) {
+          if(error.response){
+            console.log(error.response.status);
+            console.log(error.response.data);
+          } else {
+            console.log(error.messageq);
+            }
+          }
         }
+      </code>
+    </div>
 
+    <p>Now lets add the portion needed for generating images from a user request</p>
+
+    <div class="test_block">
+      <code>
+        if(command ==="image:"){
+
+          try{
+
+            const response = await openai.createImage({
+            model: "text-davinci-003",
+            prompt: `${message}`,
+            n:1,
+            size: `1024x1024`,
+          });
+
+          console.log(response.data);
+
+          message.reply(response.data.data[0].url);
+          } catch(error){
+            if(error.response){
+              console.log(error.response.status);
+              console.log(error.response.data);
+            } else {
+              console.log(error.messageq);
+            }
+          }
+        }
         });
 
         keepAlive();
 
-        client.login(process.env.CLIENT_TOKEN);</code>
+        client.login(process.env.CLIENT_TOKEN);
+      </code>
     </div>
 
     <p>This is everything that is needed for grabbing a user's message, detecting the question command, passing the
@@ -214,7 +267,7 @@
 
     <h5>4. Set up Server.js</h5>
 
-    <h4>NOTE: If you are going to run locally only do not add the server.js and remove any reference of server.js from
+    <h4>NOTE: If you are going to run locally only and not deploy using Repl do not add the server.js and remove any reference of server.js from
       the index.js</h4>
 
     <p>The server will utilize a function to keep the server alive. Add the below code to your server.js and the code
